@@ -15,21 +15,40 @@ This project provides a Python-based tool to parse Windows Sysmon event logs (`.
 
 ---
 
+- Python 3.7 or higher
+- Packages listed in `requirements.txt`
+
+---
+
 ## Setup
 
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/Veronikaktsv/sysmon-event-log-analysis.git
-   cd sysmon-event-log-analysis
+   git clone https://github.com/Veronikaktsv/Sysmon-Event-Log-Analysis-Detection.git
+   cd Sysmon-Event-Log-Analysis-Detection
    
 2. Install dependencies:
 
 `pip install -r requirements.txt`
 
-4. Add your Sysmon .evtx log file:
+3. Add your Sysmon .evtx log file:
+   
+Place your Sysmon EVTX file inside the sample_data/ folder.
 
-`Place your Sysmon EVTX file inside the sample_data/ folder and update the EVTX_FILE path in sysmon_analysis.py if necessary.`
+If you don’t have a sample EVTX file, follow these steps to export one from Windows Event Viewer:
+
+- Open Event Viewer (eventvwr.msc).
+- Navigate to: Applications and Services Logs → Microsoft → Windows → Sysmon → Operational.
+- Right-click on Operational and select Save All Events As...
+- Save the log as Sysmon.evtx inside the sample_data/ folder.
+- You can filter the log for a smaller size before exporting if needed.
+
+4. Update the file path if needed:
+   
+In sysmon_analysis.py, verify that the EVTX_FILE variable points to your EVTX file path, e.g.:
+
+`EVTX_FILE = "sample_data/Sysmon.evtx"`
 
 ---
 
@@ -68,6 +87,3 @@ This project is licensed under the [MIT License](LICENSE) - see the LICENSE file
 - [python-evtx GitHub Repository](https://github.com/williballenthin/python-evtx)
 - [MITRE ATT&CK Framework](https://attack.mitre.org/)
 
-
-## Author
-Veronika Katsevych - Veronikaktsv
