@@ -57,3 +57,16 @@ The script will:
 - Export alerts to log files or send notifications via email/slack.
 - Develop a web-based dashboard for interactive event exploration.
 - Support real-time log ingestion and analysis.
+
+---
+
+## License
+This project is licensed under the MIT License - see the @LICENSE file for details.
+
+## References
+- Sysmon Documentation - Microsoft
+- python-evtx GitHub Repository
+- MITRE ATT&CK Framework
+
+## Author
+Veronika Katsevych - Veronikaktsv
