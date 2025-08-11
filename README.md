@@ -64,9 +64,10 @@ The script will:
 This project is licensed under the [MIT License](LICENSE) - see the LICENSE file for details.
 
 ## References
-- Sysmon Documentation - Microsoft
-- python-evtx GitHub Repository
-- MITRE ATT&CK Framework
+- [Sysmon Documentation - Microsoft](https://docs.microsoft.com/en-us/sysinternals/downloads/sysmon)
+- [python-evtx GitHub Repository](https://github.com/williballenthin/python-evtx)
+- [MITRE ATT&CK Framework](https://attack.mitre.org/)
+
 
 ## Author
 Veronika Katsevych - Veronikaktsv
