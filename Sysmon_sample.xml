@@ -1,0 +1,20 @@
+<Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
+  <System>
+    <Provider Name="Microsoft-Windows-Sysmon" Guid="{5770385f-c22a-43e0-bf4c-06f5698ffbd9}" />
+    <EventID>1</EventID>
+    <Version>5</Version>
+    <Level>4</Level>
+    <TimeCreated SystemTime="2023-08-11T12:00:00.000Z" />
+  </System>
+  <EventData>
+    <Data Name="RuleName">-</Data>
+    <Data Name="UtcTime">2023-08-11 12:00:00.000</Data>
+    <Data Name="ProcessGuid">{12345678-1234-1234-1234-1234567890ab}</Data>
+    <Data Name="ProcessId">1234</Data>
+    <Data Name="Image">C:\Windows\System32\notepad.exe</Data>
+    <Data Name="FileVersion">10.0.19041.546</Data>
+    <Data Name="CommandLine">notepad.exe</Data>
+    <Data Name="CurrentDirectory">C:\Windows\system32</Data>
+    <Data Name="User">NT AUTHORITY\SYSTEM</Data>
+  </EventData>
+</Event>
