@@ -1,12 +1,12 @@
-# Sysmon-Event-Log-Analysis-Detection
+# Sysmon-Event-Log-Analysis-Detection (XML)
 
-This project provides a Python-based tool to parse Windows Sysmon event logs (`.evtx` files), detect suspicious activities such as privilege escalation and suspicious process executions, and visualize event distributions.
+This project provides a Python-based tool to parse Windows Sysmon event logs exported in XML format, detect suspicious activities such as privilege escalation and suspicious process executions, and visualize event distributions.
 
 ---
 
 ## Features
 
-- Parses Sysmon `.evtx` files using the `python-evtx` library.
+- Parses Sysmon event logs in XML format.
 - Extracts key event data including:
  - `ProcessName`
  - `CommandLine`
@@ -35,25 +35,22 @@ This project provides a Python-based tool to parse Windows Sysmon event logs (`.
    
 2. Install dependencies:
 
-`pip install -r requirements.txt`
+   ```bash
+   pip install -r requirements.txt
 
-3. Add your Sysmon `.evtx` log file:
+3. Add your Sysmon event log in XML format:
    
-- Place your .evtx file inside the `sample_data/` folder.
-- If you don’t have one, you can export from Windows Event Viewer:
+- Place your exported XML log inside the `sample_data/` folder named `Sysmon_sample.xml`.
+- You can export from Windows Event Viewer:
  - Open Event Viewer (`eventvwr.msc`).
  - Navigate to:
     `Applications and Services Logs → Microsoft → Windows → Sysmon → Operational`
 - Right-click Operational → Save All Events As…
-- Save as:
-  `sample_data/Sysmon.evtx`
-(You may filter before exporting to reduce file size.)
+- Choose XML format and save as `sample_data/Sysmon_sample.xml`
 
-4. Update the file path if needed:
-   
-In sysmon_analysis.py, verify that the EVTX_FILE variable points to your EVTX file path, e.g.:
+4. Verify the XML file path in sysmon_analysis.py:
 
-`EVTX_FILE = "sample_data/Sysmon.evtx"`
+`XML_FILE = "sample_data/Sysmon_sample.xml"`
 
 ---
 
@@ -63,7 +60,7 @@ Run the analysis script:
 `python sysmon_analysis.py`
 
 The script will:
-- Parse the `.evtx` file
+- Parse the XML file
 - Detect suspicious events and print alerts in the console
 - Display a bar chart showing event counts by Event ID
 
@@ -71,21 +68,21 @@ The script will:
 
 ## Notes
 
-- Event ID `4672` (Privilege Escalation) is usually found in Windows Security Logs, not Sysmon. Use Security `.evtx` logs to detect it.
-- Detection rules in `detect_suspicious_events()` are basic — adjust for your environment.
-- Intended for learning and demo purposes.
-  For production, add:
-    - Error handling
-    - Log storage
+- Event ID `4672` (Privilege Escalation) is typically found in Windows Security logs, not Sysmon logs. Use Security XML logs to detect this event.
+- Detection rules in `detect_suspicious_events()` are basic and for demonstration — customize them for your environment.
+- Intended for learning and demo purposes only.
+  For production, consider:
+    - Robust error handling
+    - Persistent log storage
     - SIEM integration
  
 ---
 
 ## Future Improvements
-- More detection rules mapped to MITRE ATT&CK
+- Add more detection rules mapped to MITRE ATT&CK framework
 - Export alerts to `.log` or send via Email/Slack
-- Web dashboard for interactive viewing
-- Real-time log ingestion
+- Develop a web dashboard for interactive viewing
+- Support Real-time log ingestion and alerting
 
 ---
 
@@ -94,6 +91,5 @@ This project is licensed under the [MIT License](LICENSE) - see the LICENSE file
 
 ## References
 - [Sysmon Documentation - Microsoft](https://docs.microsoft.com/en-us/sysinternals/downloads/sysmon)
-- [python-evtx GitHub Repository](https://github.com/williballenthin/python-evtx)
 - [MITRE ATT&CK Framework](https://attack.mitre.org/)
 
