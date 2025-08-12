@@ -1,3 +1,2 @@
-python-evtx
 pandas
 matplotlib
